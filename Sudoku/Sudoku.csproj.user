@@ -4,4 +4,8 @@
     <StartArguments>-c n</StartArguments>
     <StartWorkingDirectory>C:\Users\鋆\Documents\Visual Studio 2017\Projects\Sudoku\Sudoku\bin\Debug\</StartWorkingDirectory>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartArguments>-c 100</StartArguments>
+    <StartWorkingDirectory>C:\Users\鋆\Documents\Visual Studio 2017\Projects\Sudoku\Sudoku\bin\Release\</StartWorkingDirectory>
+  </PropertyGroup>
 </Project>

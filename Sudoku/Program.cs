@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Sudoku
 {
@@ -143,12 +144,21 @@ namespace Sudoku
             }
         }
 
+        static string IsNumeric(string message)
+        {
+            if (message != "" && Regex.IsMatch(message, @"^\d{5}$")) return message;
+            else
+            {
+                Console.WriteLine("输入参数错误。");
+                return "";
+            }
+        }
+
         public static void Main(string[] args)
         {
             int n,count;
             string s="";
-            Console.Write("输入数独棋盘题目个数N：");
-            n = Convert.ToInt32(Console.ReadLine());
+            n = Convert.ToInt32(IsNumeric(args[1]));
             Map a = new Map();
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Sudoku.txt");
             if (!File.Exists(path)) File.Create(path);
@@ -166,7 +176,6 @@ namespace Sudoku
                 a.Initial1();
                 a.Initial2();
             }
-            Console.ReadKey();
         }
     }
 }
