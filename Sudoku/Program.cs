@@ -144,23 +144,13 @@ namespace Sudoku
             }
         }
 
-        static string IsNumeric(string message)
-        {
-            if (message != "" && Regex.IsMatch(message, @"^\d{5}$")) return message;
-            else
-            {
-                Console.WriteLine("输入参数错误。");
-                return "";
-            }
-        }
-
         public static void Main(string[] args)
         {
             int n,count;
             string s="";
-            n = Convert.ToInt32(IsNumeric(args[1]));
+            n = Convert.ToInt32(args[1]);
             Map a = new Map();
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Sudoku.txt");
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sudoku.txt");
             if (!File.Exists(path)) File.Create(path);
             FileInfo finfo = new FileInfo(path);
             if (finfo.Exists)    finfo.Delete();
