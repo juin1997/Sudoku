@@ -156,6 +156,8 @@ namespace Sudoku
             if (finfo.Exists)    finfo.Delete();
             for (; n > 0; )
             {
+                a.Initial1();
+                a.Initial2();
                 count = 0;
                 SuDoKu(0, ref a,ref count);
                 if (count < 500)
@@ -163,8 +165,7 @@ namespace Sudoku
                     a.Output(ref s,finfo);
                     n--;
                 }
-                a.Initial1();
-                a.Initial2();
+
             }
         }
     }
